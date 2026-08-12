@@ -1,1 +1,292 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Workout"/>
+<title>Hayden and Shelby Workout 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  body{font-family:Georgia,'Times New Roman',serif;background:#0f0e0c;color:#f0ebe3;min-height:100vh;padding-bottom:80px;}
+  #sel{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;text-align:center;}
+  .st{font-family:'Courier New',monospace;font-size:11px;letter-spacing:4px;color:#555;text-transform:uppercase;margin-bottom:20px;}
+  .sh{font-size:32px;font-weight:700;line-height:1.1;margin-bottom:8px;}
+  .ss{font-family:'Courier New',monospace;font-size:12px;color:#555;letter-spacing:1px;margin-bottom:48px;}
+  .sb{width:100%;max-width:300px;padding:20px;border-radius:14px;border:none;cursor:pointer;margin-bottom:16px;transition:transform 0.1s ease;}
+  .sb:active{transform:scale(0.97);}
+  .sbh{background:linear-gradient(135deg,#e8632a,#c44d1a);color:#fff;}
+  .sbs{background:linear-gradient(135deg,#c4567a,#a03060);color:#fff;}
+  .sbn{font-size:22px;font-weight:700;letter-spacing:-0.5px;display:block;margin-bottom:4px;}
+  .sbd{font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;opacity:0.85;display:block;}
+  #app{display:none;}
+  .hdr{padding:48px 24px 20px;text-align:center;position:relative;}
+  .bk{position:absolute;top:52px;left:16px;background:none;border:none;color:#555;font-size:13px;font-family:'Courier New',monospace;cursor:pointer;padding:4px 0;}
+  .hn{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:-0.5px;margin-bottom:4px;}
+  .hs{font-family:'Courier New',monospace;font-size:11px;color:#888;letter-spacing:1px;}
+  .tabs{display:flex;overflow-x:auto;padding:12px 16px 0;gap:8px;scrollbar-width:none;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{flex-shrink:0;padding:10px 14px;border-radius:8px;font-family:'Courier New',monospace;font-size:11px;letter-spacing:1px;cursor:pointer;text-transform:uppercase;border:none;}
+  .ah{background:#e8632a;color:#fff;font-weight:700;}
+  .as{background:#c4567a;color:#fff;font-weight:700;}
+  .ti{background:#1a1713;color:#888;border:1px solid #2a2620;}
+  .con{padding:16px;}
+  .dh{border-radius:12px;padding:20px;margin-bottom:12px;}
+  .dhh{background:#1a1713;border:1px solid #2a2620;}
+  .dhs{background:#18131a;border:1px solid #261e2a;}
+  .dht{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;}
+  .dls{font-family:'Courier New',monospace;font-size:11px;color:#555;letter-spacing:2px;margin-bottom:4px;text-transform:uppercase;}
+  .dh h2{font-size:20px;font-weight:700;line-height:1.2;}
+  .dtag{padding:4px 10px;border-radius:20px;font-size:10px;font-family:'Courier New',monospace;letter-spacing:2px;font-weight:700;white-space:nowrap;margin-left:12px;}
+  .wu{border-radius:8px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:10px;border-left:3px solid #4a9e7e;}
+  .wuh{background:#151310;border:1px solid #2a2620;}
+  .wus{background:#131015;border:1px solid #261e2a;}
+  .wul{font-family:'Courier New',monospace;font-size:9px;color:#4a9e7e;letter-spacing:2px;margin-bottom:2px;}
+  .wut{font-size:13px;color:#c8c0b4;}
+  .exs{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+  .ec{border-radius:10px;padding:14px 16px;cursor:pointer;}
+  .ech{background:#1a1713;border:1px solid #2a2620;}
+  .ecs{background:#18131a;border:1px solid #261e2a;}
+  .ec.done{opacity:0.55;}
+  .ec.sub{padding:10px 14px 10px 28px;}
+  .er{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+  .el{flex:1;}
+  .enr{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+  .cc{width:18px;height:18px;border-radius:50%;border:1.5px solid #444;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:#fff;min-width:18px;}
+  .cc.done{border:none;background:#4a9e7e;}
+  .en{font-size:15px;font-weight:600;color:#f0ebe3;}
+  .en.done{text-decoration:line-through;color:#666;}
+  .en.sub{font-size:13px;}
+  .etp{font-size:12px;color:#666;line-height:1.5;padding-left:26px;font-style:italic;margin-top:2px;}
+  .ev{text-align:right;flex-shrink:0;}
+  .esh{font-family:'Courier New',monospace;font-size:12px;color:#e8632a;font-weight:700;}
+  .ess{font-family:'Courier New',monospace;font-size:12px;color:#c4567a;font-weight:700;}
+  .ew{font-family:'Courier New',monospace;font-size:10px;color:#555;margin-top:2px;}
+  .shh{font-family:'Courier New',monospace;font-size:11px;color:#e8632a;letter-spacing:2px;padding:8px 0 2px;text-transform:uppercase;}
+  .shs{font-family:'Courier New',monospace;font-size:11px;color:#c4567a;letter-spacing:2px;padding:8px 0 2pt;text-transform:uppercase;}
+  .wk{border-radius:8px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:10px;border-left:3px solid #5b7de8;}
+  .wkh{background:#151310;border:1px solid #2a2620;}
+  .wks{background:#131015;border:1px solid #261e2a;}
+  .wkl{font-family:'Courier New',monospace;font-size:9px;color:#5b7de8;letter-spacing:2px;margin-bottom:2px;}
+  .wkt{font-size:13px;color:#c8c0b4;}
+  .nbh{background:#0f0e0c;border:1px solid #e8632a33;border-radius:8px;padding:14px 16px;}
+  .nbs{background:#0e0c0f;border:1px solid #c4567a33;border-radius:8px;padding:14px 16px;}
+  .nlh{font-family:'Courier New',monospace;font-size:9px;color:#e8632a;letter-spacing:2px;margin-bottom:6px;}
+  .nls{font-family:'Courier New',monospace;font-size:9px;color:#c4567a;letter-spacing:2px;margin-bottom:6px;}
+  .nt{font-size:13px;color:#b8b0a4;line-height:1.6;font-style:italic;}
+  .rc{border-radius:12px;padding:28px 20px;text-align:center;}
+  .rch{background:#1a1713;border:1px solid #2a2620;}
+  .rcs{background:#18131a;border:1px solid #261e2a;}
+  .re{font-size:48px;margin-bottom:16px;}
+  .rc h3{font-size:18px;margin-bottom:12px;}
+  .rc p{color:#888;font-size:14px;line-height:1.7;}
+  .rj{margin-top:20px;padding:14px;border-radius:8px;}
+  .rjh{background:#0f0e0c;border:1px solid #2a2620;}
+  .rjs{background:#0e0c0f;border:1px solid #261e2a;}
+  .rjlh{font-size:13px;color:#e8632a;font-family:'Courier New',monospace;margin-bottom:4px;}
+  .rjls{font-size:13px;color:#c4567a;font-family:'Courier New',monospace;margin-bottom:4px;}
+  .rjt{font-size:14px;color:#f0ebe3;}
+  .div{font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:#555;text-transform:uppercase;margin-bottom:12px;padding-top:8px;border-top:1px solid #1a1713;}
+  .tw{padding:0 16px;}
+  .tl{display:flex;flex-direction:column;gap:8px;}
+  .tc{display:flex;gap:12px;align-items:flex-start;border-radius:8px;padding:12px 14px;}
+  .tch{background:#1a1713;border:1px solid #2a2620;}
+  .tcs{background:#18131a;border:1px solid #261e2a;}
+  .ti2{font-size:18px;flex-shrink:0;}
+  .tt{font-size:13px;color:#a09890;line-height:1.5;}
+  .aw{padding:16px 16px 0;}
+  .ag{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .aih{background:#1a1713;border:1px solid #2a2620;border-radius:8px;padding:10px 12px;font-family:'Courier New',monospace;font-size:11px;color:#888;}
+  .ais{background:#18131a;border:1px solid #261e2a;border-radius:8px;padding:10px 12px;font-family:'Courier New',monospace;font-size:11px;color:#888;}
+  .fch{font-family:'Courier New',monospace;font-size:11px;color:#e8632a;letter-spacing:1px;}
+  .fcs{font-family:'Courier New',monospace;font-size:11px;color:#c4567a;letter-spacing:1px;}
+</style>
+</head>
+<body>
+<div id="sel">
+  <div class="st">At-Home Workout Program</div>
+  <h1 class="sh">Who's<br/>Working Out?</h1>
+  <p class="ss">6 DAYS/WEEK · CUT + TONE</p>
+  <button class="sb sbh" onclick="go('h')">
+    <span class="sbn">Hayden</span>
+    <span class="sbd">ARMS · CORE · FAT BURN</span>
+  </button>
+  <button class="sb sbs" onclick="go('s')">
+    <span class="sbn">Shelby</span>
+    <span class="sbd">GLUTES · ARMS · FAT BURN</span>
+  </button>
+</div>
+<div id="app">
+  <div class="hdr">
+    <button class="bk" onclick="back()">← SWITCH</button>
+    <div class="hn" id="hn"></div>
+    <div class="hs" id="hsu"></div>
+  </div>
+  <div class="tabs" id="tabs"></div>
+  <div class="con" id="con"></div>
+  <div class="tw" id="tw"></div>
+  <div class="aw" id="aw"></div>
+</div>
+<script>
+const H=[
+{day:"Monday",label:"Upper Body — Arms & Core",focus:"Biceps · Triceps · Shoulders · Core",tag:"STRENGTH",tc:"#e8632a",wu:"5 min walk around the block or march in place",ex:[
+{n:"Hammer Curls",s:"3×12",w:"15lb DBs",t:"Slow on the way down — 3 seconds. Heavier DBs now, control matters even more."},
+{n:"Alternating Bicep Curls",s:"3×10 each",w:"15lb DBs",t:"Squeeze at the top, don't swing your back."},
+{n:"Overhead Tricep Extension",s:"3×12",w:"15lb Barbell",t:"Keep your elbows close to your head. Full range of motion."},
+{n:"Skull Crushers (Floor)",s:"3×10",w:"10lb Barbell",t:"Lie on your back. Lower bar to forehead, extend back up."},
+{n:"Lateral Raises",s:"3×12",w:"5lb DBs",t:"Slight bend in elbows. Lead with your pinkies. Light and controlled."},
+{n:"Hollow Body Hold",s:"3×20 sec",w:"Bodyweight",t:"Lie on back, arms overhead, legs slightly raised, lower back pressed flat. Core on fire."},
+{n:"Dead Bug",s:"3×8 each side",w:"Bodyweight",t:"Opposite arm and leg lower slowly. Keep lower back glued to the floor. Deep core work."},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"The arms work here is exactly what you need to feel confident getting those tattoos finished."},
+{day:"Tuesday",label:"Full Body + Cardio Burn",focus:"Total Body · Fat Burn · Core",tag:"BURN",tc:"#d44f4f",wu:"5 min light walk or jumping jacks",ex:[
+{n:"Squat to Press",s:"3×12",w:"10lb DBs",t:"Squat down, drive up, press dumbbells overhead. One fluid motion."},
+{n:"Romanian Deadlift",s:"3×12",w:"20lb Barbell",t:"Hinge at the hips, soft knee bend. Feel your hamstrings stretch."},
+{n:"Bent Over Row",s:"3×10",w:"20lb Barbell",t:"Squeeze your shoulder blades together at the top."},
+{n:"Dumbbell Floor Press",s:"3×12",w:"15lb DBs",t:"Chest press on the floor. Full press up, slow down."},
+{n:"Russian Twists",s:"3×20 total",w:"10lb DB",t:"Lean back slightly, feet off ground. Rotate side to side. Love handle work."},
+{n:"Mountain Climbers",s:"3×30 sec",w:"Bodyweight",t:"Drive knees to chest fast. Keep hips level."},
+{n:"High Knees",s:"3×30 sec",w:"Bodyweight",t:"Pump your arms. Get those knees up. This is your cardio for the day."},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"High energy day. Weights + bodyweight cardio is the formula for burning fat."},
+{day:"Wednesday",label:"Active Recovery + Core",focus:"Core · Mobility · Obliques",tag:"RECOVERY",tc:"#4a9e7e",wu:"Morning walk IS the warmup today",ex:[
+{n:"Dead Bug",s:"3×8 each side",w:"Bodyweight",t:"Lie on back. Opposite arm and leg lower slowly. Lower back pressed to floor throughout."},
+{n:"Bicycle Crunches",s:"3×20 total",w:"Bodyweight",t:"Slow and controlled — touch elbow to knee. Don't yank your neck."},
+{n:"Woodchoppers",s:"3×12 each side",w:"10lb DB",t:"Diagonal chop from shoulder to opposite hip. Targets obliques directly."},
+{n:"Hip Bridges",s:"3×15",w:"Bodyweight",t:"Drive hips up, squeeze at the top for 1 sec. Great for lower back health too."},
+{n:"Superman Hold",s:"3×10 (3 sec hold)",w:"Bodyweight",t:"Lie face down, lift arms and legs simultaneously. Builds lower back."},
+{n:"Standing Oblique Crunches",s:"3×15 each",w:"10lb DB",t:"Hold DB at side, crunch sideways pulling hip to rib. Direct love handle work."},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"Light day — but don't skip it. This is what keeps you injury-free and consistent."},
+{day:"Thursday",label:"Upper Body — Push Focus",focus:"Chest · Shoulders · Triceps · Arms",tag:"STRENGTH",tc:"#e8632a",wu:"5 min arm circles, shoulder rolls, light movement",ex:[
+{n:"Push-Ups",s:"4×15",w:"Bodyweight",t:"At 6'5 and 250lbs, these are no joke. Go chest to floor. Full lockout at top."},
+{n:"Close-Grip Push-Ups",s:"3×10",w:"Bodyweight",t:"Hands shoulder-width or narrower. Isolates triceps — key for arm tone."},
+{n:"Overhead Press",s:"3×12",w:"15lb Barbell",t:"Stand tall, press straight up. Control the descent."},
+{n:"Front Raises",s:"3×12",w:"5lb DBs",t:"Arms parallel to floor at the top. Don't rock back. Shoulder isolation."},
+{n:"Tricep Kickbacks",s:"3×12 each",w:"15lb DB",t:"Hinge over, upper arm parallel to floor, extend and squeeze at the back."},
+{n:"Concentration Curls",s:"3×10 each",w:"15lb DB",t:"Elbow on inner thigh. Full curl, full squeeze. Pure bicep isolation."},
+{n:"Hollow Body Hold",s:"3×20 sec",w:"Bodyweight",t:"Arms overhead, legs raised, lower back pressed flat. Replaces plank — equally brutal."},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"Two upper days per week is what builds visible arm definition. You will see it in the mirror."},
+{day:"Friday",label:"Lower Body + Core Burn",focus:"Legs · Glutes · Core · Fat Burn",tag:"BURN",tc:"#d44f4f",wu:"5 min light walk or leg swings",ex:[
+{n:"Goblet Squat",s:"4×12",w:"20lb Barbell (held at chest)",t:"Feet shoulder width. Sit into it — break parallel if you can. Chest tall."},
+{n:"Reverse Lunges",s:"3×10 each leg",w:"15lb DBs",t:"Step back, drop straight down. Heavier DBs — really feel the front leg working."},
+{n:"Sumo Deadlift",s:"3×12",w:"20lb Barbell",t:"Wide stance, toes out. Drives inner thighs and glutes hard."},
+{n:"Single Leg Glute Bridge",s:"3×12 each",w:"Bodyweight",t:"One leg extended, drive hips up off floor. Balance and glute work."},
+{n:"Calf Raises",s:"3×20",w:"20lb Barbell",t:"Slow down, full range. Calves respond best to high reps."},
+{n:"V-Ups",s:"3×10",w:"Bodyweight",t:"Reach hands to feet, lifting both simultaneously. Advanced core move."},
+{n:"Burpees",s:"3×8",w:"Bodyweight",t:"Best fat burn move there is. Controlled down, explosive up. Breathe."},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"Big muscle groups = big calorie burn. Leg day is your best weapon for dropping belly fat."},
+{day:"Saturday",label:"Arms & Abs Finisher",focus:"Biceps · Triceps · Full Core",tag:"TONE",tc:"#5b7de8",wu:"5 min walk, arm swings",ex:[
+{n:"21s Bicep Curls",s:"3 sets",w:"15lb DBs",t:"7 lower half, 7 upper half, 7 full reps. Heavier now — this will seriously burn."},
+{n:"Barbell Curl",s:"3×12",w:"15lb Barbell",t:"Both arms together. Slow negative. Feel every rep."},
+{n:"Overhead Tricep Extension",s:"3×12",w:"15lb Barbell",t:"Full stretch at bottom, full lock at top."},
+{n:"Diamond Push-Ups",s:"3×8",w:"Bodyweight",t:"Hands form a diamond under your chest. Pure tricep work."},
+{n:"Ab Circuit — no rest between:",s:"",w:"",t:"",hdr:true},
+{n:"Crunches",s:"x20",w:"Bodyweight",t:"Slow, controlled. Think rib to hip.",sub:true},
+{n:"Leg Raises",s:"x15",w:"Bodyweight",t:"Hands under lower back. Lower legs slowly, don't let them touch the floor.",sub:true},
+{n:"Russian Twists",s:"x20 total",w:"10lb DB",t:"Feet up. Rotate all the way side to side.",sub:true},
+{n:"Hollow Body Hold",s:"x20 sec",w:"Bodyweight",t:"Arms overhead, legs raised, back flat. Hits obliques and deep core hard.",sub:true},
+],cd:"Morning walk with Shelby 🚶 — 20-30 min easy pace",note:"Saturday arms day — this is where you build the confidence for those tattoo appointments."},
+{day:"Sunday",label:"Rest and Long Walk",focus:"Recovery · Mobility · Mental Reset",tag:"REST",tc:"#888",wu:"",ex:[],cd:"",note:"Your body builds muscle when you REST. Take the long walk with Shelby, stretch for 10 minutes, and get ready to go again Monday.",rest:true}
+];
+const S=[
+{day:"Monday",label:"Arms & Upper Tone",focus:"Biceps · Triceps · Shoulders · Core",tag:"TONE",tc:"#c4567a",wu:"5 min walk or arm circles + shoulder rolls",ex:[
+{n:"Bicep Curls",s:"3x15",w:"10lb DBs",t:"Slow 3-second lower. This is where the muscle is built — don't rush down."},
+{n:"Hammer Curls",s:"3x12",w:"10lb DBs",t:"Neutral grip (palms facing each other). Builds width to the arm."},
+{n:"Overhead Tricep Extension",s:"3x12",w:"10lb Barbell",t:"Keep elbows close to your head. Full stretch down, full lock up."},
+{n:"Lateral Raises",s:"3x15",w:"5lb DBs",t:"Lead with your pinkies. Slight bend in the elbows. Stop at shoulder height."},
+{n:"Front Raises",s:"3x12",w:"5lb DBs",t:"Alternate arms. Slow and controlled — don't use momentum."},
+{n:"Hollow Body Hold",s:"3x20 sec",w:"Bodyweight",t:"Lie on back, arms overhead, legs slightly raised, lower back pressed flat. No back strain — deep core work."},
+{n:"Dead Bug",s:"3x8 each side",w:"Bodyweight",t:"Opposite arm and leg lower slowly. Back flat the whole time. Back-safe oblique work."},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"Two arm days per week is the formula for visible definition. You will feel this by week 3."},
+{day:"Tuesday",label:"Glutes & Core Burn",focus:"Glutes · Legs · Obliques · Fat Burn",tag:"BURN",tc:"#d44f4f",wu:"5 min walk or leg swings and hip circles",ex:[
+{n:"Glute Bridges",s:"4x15",w:"20lb Barbell (across hips)",t:"Drive hips up, SQUEEZE at the top for 2 full seconds. The squeeze is everything."},
+{n:"Sumo Squats",s:"3x15",w:"20lb Barbell",t:"Wide stance, toes out. Sit deep. Targets inner thighs and glutes together."},
+{n:"Reverse Lunges",s:"3x12 each leg",w:"10lb DBs",t:"Step back, drop straight down. Don't let front knee cave in."},
+{n:"Romanian Deadlift",s:"3x12",w:"20lb Barbell",t:"Hinge at the hips, soft knee bend. Feel the hamstring stretch. Squeeze glutes on the way up."},
+{n:"Russian Twists",s:"3x20 total",w:"10lb DB",t:"Feet off the floor, lean back slightly. Rotate all the way side to side."},
+{n:"Mountain Climbers",s:"3x30 sec",w:"Bodyweight",t:"Drive knees toward chest fast. Keep hips level. This is your cardio for today."},
+{n:"Donkey Kicks",s:"3x15 each",w:"Bodyweight",t:"On all fours — kick one leg back and up, squeezing the glute hard at the top."},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"Glutes are your number 1 metabolism driver. Building them means burning more fat all day, even at rest."},
+{day:"Wednesday",label:"Active Recovery + Core",focus:"Core · Mobility · Obliques · Stretch",tag:"RECOVERY",tc:"#4a9e7e",wu:"The morning walk IS your warmup today",ex:[
+{n:"Dead Bug",s:"3x8 each side",w:"Bodyweight",t:"Lie on back. Opposite arm and leg lower slowly. Lower back pressed to floor the entire time."},
+{n:"Bicycle Crunches",s:"3x20 total",w:"Bodyweight",t:"Slow and deliberate — elbow to knee. Don't pull your neck. Feel your obliques rotate."},
+{n:"Woodchoppers",s:"3x12 each side",w:"10lb DB",t:"Diagonal chop from shoulder to opposite hip. Direct oblique and love handle work."},
+{n:"Glute Bridge Hold",s:"3x30 sec",w:"Bodyweight",t:"Hold the bridge at the top. Constant glute squeeze. Back-friendly and effective."},
+{n:"Cat-Cow Stretch",s:"2x10 slow",w:"Bodyweight",t:"On all fours — arch back up (cat), drop belly (cow). Great for your back Shelby."},
+{n:"Standing Oblique Crunches",s:"3x15 each",w:"10lb DB",t:"Hold DB at your side. Crunch sideways, pulling hip toward rib. Direct love handle work."},
+{n:"Childs Pose to Cobra",s:"5 slow flows",w:"Bodyweight",t:"Flow between the two. 30 seconds. Your lower back will thank you all day."},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"This day keeps you injury-free — especially important while your back recovers. Never skip Wednesday."},
+{day:"Thursday",label:"Full Body Strength",focus:"Total Body · Compound Moves · Core",tag:"STRENGTH",tc:"#c4567a",wu:"5 min walk, arm swings, bodyweight squats",ex:[
+{n:"Goblet Squat",s:"4x12",w:"20lb Barbell (at chest)",t:"Feet shoulder-width, toes slightly out. Chest tall. Sit INTO the squat. Full depth."},
+{n:"Bent Over Row",s:"3x12",w:"20lb Barbell",t:"Hinge at hips. Pull bar to belly button, squeeze shoulder blades at the top."},
+{n:"Dumbbell Floor Press",s:"3x12",w:"15lb DBs",t:"Lie on back, press DBs up. Lower slowly until elbows touch the floor."},
+{n:"Squat to Press",s:"3x10",w:"10lb DBs",t:"Squat down, drive up explosively, press DBs overhead. One fluid movement."},
+{n:"Single Leg Glute Bridge",s:"3x12 each",w:"Bodyweight",t:"One leg extended. Drive hips up. Isolates each glute individually. Back-friendly."},
+{n:"Hollow Body Hold",s:"3x20 sec",w:"Bodyweight",t:"Arms overhead, legs raised, lower back flat. Hits obliques without spine rotation."},
+{n:"Burpees",s:"3x6",w:"Bodyweight",t:"Controlled down, explosive up. Best full-body fat burn move there is."},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"Compound lifts build muscle AND burn fat in the same session. Most efficient thing you can do."},
+{day:"Friday",label:"Glutes & Legs Burn",focus:"Hamstrings · Glutes · Inner Thigh · Core",tag:"BURN",tc:"#d44f4f",wu:"5 min walk or hip circles and leg swings",ex:[
+{n:"Sumo Deadlift",s:"4x12",w:"20lb Barbell",t:"Wide stance, toes out. Drive through your heels. Squeeze everything at the top."},
+{n:"Curtsy Lunges",s:"3x12 each leg",w:"10lb DBs",t:"Step one foot behind and to the outside. Drop down. Incredible for glutes and inner thighs."},
+{n:"Fire Hydrants",s:"3x15 each",w:"Bodyweight",t:"On all fours, lift one knee out to the side. Squeeze the glute hard. Back stays neutral."},
+{n:"Calf Raises",s:"3x20",w:"15lb Barbell",t:"Full range — all the way up on toes, all the way down. Slow and controlled."},
+{n:"Side-Lying Leg Raises",s:"3x15 each",w:"Bodyweight",t:"Lie on your side, lift top leg. Works outer glutes and hip abductors."},
+{n:"V-Ups",s:"3x10",w:"Bodyweight",t:"Lift arms and legs to meet in the middle. Scale to crunches if needed."},
+{n:"Jump Squats",s:"3x10",w:"Bodyweight",t:"Squat down, explode up, soft landing. Powerful fat-burning finisher."},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"Two lower body days builds the glutes and legs that change your whole silhouette."},
+{day:"Saturday",label:"Arms & Abs Finisher",focus:"Biceps · Triceps · Full Core · Waist",tag:"TONE",tc:"#c4567a",wu:"5 min walk, arm circles",ex:[
+{n:"21s Bicep Curls",s:"3 sets",w:"10lb DBs",t:"7 lower half + 7 upper half + 7 full reps = 1 set. Builds the bicep peak. It burns."},
+{n:"Concentration Curls",s:"3x12 each",w:"10lb DB",t:"Elbow braced on inner thigh. Full curl, full squeeze at the top. Pure isolation."},
+{n:"Tricep Kickbacks",s:"3x12 each",w:"10lb DB",t:"Hinge over, upper arm parallel to floor. Extend and squeeze hard at the back."},
+{n:"Overhead Tricep Extension",s:"3x12",w:"10lb Barbell",t:"Elbows close to your head. Full stretch down, lock out up."},
+{n:"Ab Circuit — no rest between:",s:"",w:"",t:"",hdr:true},
+{n:"Crunches",s:"x20",w:"Bodyweight",t:"Slow. Think rib cage pulling toward hip bone — not neck crunching.",sub:true},
+{n:"Leg Raises",s:"x15",w:"Bodyweight",t:"Hands under lower back. Lower legs slowly, don't let feet touch the floor.",sub:true},
+{n:"Russian Twists",s:"x20 total",w:"10lb DB",t:"Feet off ground. Rotate all the way side to side. Direct oblique work.",sub:true},
+{n:"Hollow Body Hold",s:"x20 sec",w:"Bodyweight",t:"Arms overhead, legs up, back flat. Back-safe oblique finisher. Hold strong.",sub:true},
+],cd:"Morning walk with Hayden 🚶 — 20-30 min easy pace",note:"Saturday arms — by week 4 you will start feeling definition you have not felt before. That is the program working."},
+{day:"Sunday",label:"Rest & Long Walk",focus:"Recovery · Mobility · Mental Reset",tag:"REST",tc:"#888",wu:"",ex:[],cd:"",note:"Your body changes during rest, not during the workout. Take the long walk with Hayden, stretch, drink your water, and get ready to go again Monday.",rest:true}
+];
+const HT=[{i:"💧",t:"Drink water before you even pick up a weight. At 250lbs you need more than most."},{i:"🥩",t:"Protein is non-negotiable. Aim for 180-200g/day to preserve muscle while cutting."},{i:"😴",t:"7-8 hours of sleep is doing more for your belly fat than any crunch ever will."},{i:"📅",t:"Consistency over Intensity. Showing up every day at 70% beats skipping workouts."},{i:"📏",t:"Take measurements and photos now. The scale lies — inches and mirror tell the truth."}];
+const ST=[{i:"💧",t:"Hydration is huge for women's fat loss. Aim for at least 80oz of water daily."},{i:"🥩",t:"Protein protects your muscle while cutting. Target 130-150g per day."},{i:"🌙",t:"Cortisol directly causes belly fat and love handles. Sleep 7-8 hours — it is training."},{i:"📏",t:"Take waist and hip measurements now plus a photo. The scale will be unreliable as you build muscle."},{i:"🔄",t:"Your energy will vary through your cycle — that is normal. Adjust intensity, never skip entirely."}];
+let who='h',d=0;
+const chk={h:{},s:{}};
+function go(p){
+  who=p;d=0;
+  document.getElementById('sel').style.display='none';
+  document.getElementById('app').style.display='block';
+  const h=p==='h';
+  document.getElementById('hn').innerHTML=h?'HAYDEN\'S <span style="color:#e8632a">AT-HOME</span> PROGRAM':'SHELBY\'S <span style="color:#c4567a">AT-HOME</span> PROGRAM';
+  document.getElementById('hsu').textContent=h?'6 DAYS/WEEK · CUT + TONE · ARMS & CORE':'6 DAYS/WEEK · CUT + TONE · GLUTES & ARMS';
+  rT();rA();render();
+}
+function back(){document.getElementById('app').style.display='none';document.getElementById('sel').style.display='flex';}
+function days(){return who==='h'?H:S;}
+function render(){
+  const D=days(),h=who==='h';
+  document.getElementById('tabs').innerHTML=D.map((x,i)=>'<button class="tab '+(i===d?(h?'ah':'as'):'ti')+'" onclick="sd('+i+')">'+x.day.slice(0,3)+'</button>').join('');
+  const x=D[d];
+  if(x.rest){
+    document.getElementById('con').innerHTML='<div class="dh '+(h?'dhh':'dhs')+'"><div class="dht"><div><div class="dls">'+x.day+'</div><h2>'+x.label+'</h2></div><span class="dtag" style="background:'+x.tc+'22;color:'+x.tc+';border:1px solid '+x.tc+'44">'+x.tag+'</span></div><div class="'+(h?'fch':'fcs')+'">'+x.focus+'</div></div><div class="rc '+(h?'rch':'rcs')+'"><div class="re">🛌</div><h3>Complete Rest Day</h3><p>'+x.note+'</p><div class="rj '+(h?'rjh':'rjs')+'"><div class="'+(h?'rjlh':'rjls')+'">TODAY\'S ONLY JOB</div><div class="rjt">'+(h?'Long walk with Shelby. Stretch. Recover. 💪':'Long walk with Hayden. Stretch. Recover. 💪')+'</div></div></div>';
+    return;
+  }
+  const exH=x.ex.map((e,i)=>{
+    if(e.hdr) return '<div class="'+(h?'shh':'shs')+'">'+e.n+'</div>';
+    const k=d+'-'+i,done=!!chk[who][k];
+    return '<div class="ec '+(h?'ech':'ecs')+(e.sub?' sub':'')+(done?' done':'')+'" onclick="tog('+d+','+i+')"><div class="er"><div class="el"><div class="enr"><div class="cc'+(done?' done':'')+'">'+( done?'✓':'')+'</div><span class="en'+(e.sub?' sub':'')+(done?' done':'')+'">'+e.n+'</span></div>'+(e.t?'<div class="etp">'+e.t+'</div>':'')+'</div><div class="ev">'+(e.s?'<div class="'+(h?'esh':'ess')+'">'+e.s+'</div>':'')+(e.w?'<div class="ew">'+e.w+'</div>':'')+'</div></div></div>';
+  }).join('');
+  document.getElementById('con').innerHTML='<div class="dh '+(h?'dhh':'dhs')+'"><div class="dht"><div><div class="dls">'+x.day+'</div><h2>'+x.label+'</h2></div><span class="dtag" style="background:'+x.tc+'22;color:'+x.tc+';border:1px solid '+x.tc+'44">'+x.tag+'</span></div><div class="'+(h?'fch':'fcs')+'">'+x.focus+'</div></div>'+(x.wu?'<div class="wu '+(h?'wuh':'wus')+'"><span style="font-size:18px">🔥</span><div><div class="wul">WARMUP</div><div class="wut">'+x.wu+'</div></div></div>':'')+'<div class="exs">'+exH+'</div>'+(x.cd?'<div class="wk '+(h?'wkh':'wks')+'"><span style="font-size:18px">🚶</span><div><div class="wkl">DAILY WALK</div><div class="wkt">'+x.cd+'</div></div></div>':'')+'<div class="'+(h?'nbh':'nbs')+'"><div class="'+(h?'nlh':'nls')+'">COACH NOTE</div><div class="nt">'+x.note+'</div></div>';
+}
+function rT(){
+  const tips=who==='h'?HT:ST,tc=who==='h'?'tch':'tcs';
+  document.getElementById('tw').innerHTML='<div class="div" style="margin:0 0 12px">THE 20% THAT MATTERS MOST</div><div class="tl">'+tips.map(t=>'<div class="tc '+tc+'"><span class="ti2">'+t.i+'</span><span class="tt">'+t.t+'</span></div>').join('')+'</div>';
+}
+function rA(){
+  const a=who==='h'?'aih':'ais';
+  const items=["5lb Dumbbells","8lb Dumbbells","10lb Dumbbells","15lb Dumbbells","20lb Dumbbells","10lb Barbell","15lb Barbell","20lb Barbell","Your Bodyweight"];
+  document.getElementById('aw').innerHTML='<div class="div" style="margin:16px 0 12px">YOUR ARSENAL</div><div class="ag">'+items.map(it=>'<div class="'+a+'">✓ '+it+'</div>').join('')+'</div>';
+}
+function sd(i){d=i;render();window.scrollTo({top:0,behavior:'smooth'});}
+function tog(di,ei){const k=di+'-'+ei;chk[who][k]=!chk[who][k];render();}
+</script>
+</body>
+</html>
