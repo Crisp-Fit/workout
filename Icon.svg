@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+<rect width="180" height="180" rx="40" fill="#0f0e0c"/>
+<polygon points="0,0 100,0 80,180 0,180" fill="#e8632a" opacity="0.3"/>
+<polygon points="100,0 180,0 180,180 80,180" fill="#c4567a" opacity="0.3"/>
+<rect x="18" y="72" width="22" height="36" rx="6" fill="#e8632a"/>
+<rect x="140" y="72" width="22" height="36" rx="6" fill="#c4567a"/>
+<rect x="40" y="85" width="100" height="10" rx="5" fill="#f0ebe3"/>
+<rect x="55" y="78" width="12" height="24" rx="4" fill="#e8632a"/>
+<rect x="113" y="78" width="12" height="24" rx="4" fill="#c4567a"/>
+<text x="90" y="148" font-family="Courier New" font-size="18" font-weight="700" fill="#f0ebe3" text-anchor="middle" letter-spacing="3">CRISP FIT</text>
+</svg>
