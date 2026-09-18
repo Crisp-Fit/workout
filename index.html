@@ -228,13 +228,13 @@ const S=[
 {n:"Skull Crushers (Floor)",s:"3x10",w:"10lb Barbell",t:"Lie on back, lower bar to forehead, press back up. Builds the horseshoe shape on the back of the arm."},
 {n:"Hammer Curls",s:"3x12",w:"10lb DBs",t:"Slow and controlled. Second bicep exercise of the day — volume work for arm size."},
 {n:"Hollow Body Hold",s:"3x20 sec",w:"Bodyweight",t:"Arms overhead, legs slightly raised, back flat. Core work with zero hamstring loading."},
-],cd:"Morning walk with Hayden — 20-30 min easy pace",note:"Four sets of lateral raises twice a week is the secret to camera-ready shoulders. Trust the 
+],cd:"Morning walk with Hayden — 20-30 min easy pace",note:"Four sets of lateral raises twice a week is the secret to camera-ready shoulders. Trust the volume."},
 {day:"Friday",label:"Abs & Foam Roller",focus:"Core · Obliques · Back Relief · Stretch",tag:"ABS",tc:"#c4567a",wu:"5 min gentle walk or slow breathing stretches",ex:[
 {n:"Foam Roller — Upper Back",s:"2 min",w:"Foam Roller",t:"Place roller under your upper back, arms crossed over chest. Roll slowly from shoulder blades to mid back. Let each tight spot release. Do NOT roll your lower vertebrae."},
 {n:"Foam Roller — Glutes",s:"1 min each side",w:"Foam Roller",t:"Sit on the roller, cross one ankle over the opposite knee. Roll the glute slowly. Releases the piriformis which pulls directly on your lower back."},
 {n:"Dead Bug",s:"3x8 each side",w:"Bodyweight",t:"Opposite arm and leg lower slowly. Back flat the whole time. Best core move for your back — no spinal compression."},
 {n:"Toe Touch Crunches",s:"3x15",w:"Bodyweight",t:"Legs straight up, reach both hands to your feet. Direct ab and oblique burn with no lower back strain."},
-{n:"Hollow Body Hold",s:"3x20 sec",w:"Bodyweight",t:"Arms overhead, legs slightly raised, lower back pressed flat. Deep core activation — feels brutal but is back-safe."},
+{n:"Hollow Body Hold",s:"3x20 sec",w:"Bodyweight",t:"Arms overhead, legs slightly raised, lower back pressed flat. Deep core activation — back-safe."},
 {n:"Bicycle Crunches",s:"3x20 total",w:"Bodyweight",t:"Slow and deliberate — elbow to knee. Feel the oblique rotate. Don't pull your neck."},
 {n:"Standing Oblique Crunches",s:"3x15 each",w:"8lb DB",t:"Hold DB at side, crunch sideways toward your hip. Direct love handle work with zero back loading."},
 {n:"Foam Roller — Thoracic Spine",s:"1 min",w:"Foam Roller",t:"Place roller horizontally across your mid back, hands behind head. Gently extend over it. Opens the chest and releases the upper spine. Finish here — you will feel incredible."},
@@ -250,15 +250,14 @@ const S=[
 {n:"Dead Bug",s:"3x8 each side",w:"Bodyweight",t:"Finish with gentle core. Back flat, slow and controlled. End the week feeling strong not broken."},
 ],cd:"Morning walk with Hayden — 20-30 min easy pace",note:"Saturday is your camera prep day. Arms pumped, shoulders full, upper back tight. This is the look."},
 {day:"Sunday",label:"Rest & Long Walk",focus:"Recovery · Mobility · Mental Reset",tag:"REST",tc:"#888",wu:"",ex:[],cd:"",note:"Rest is when your arms actually grow. You have put in the work all week — let your body build. Long walk with Hayden, stretch gently, and get ready to go again Monday.",rest:true}
-];
-const HT=[{i:"💧",t:"Drink water before you even pick up a weight. At 250lbs you need more than most."},{i:"🥩",t:"Protein is non-negotiable. Aim for 180-200g/day to preserve muscle while cutting."},{i:"😴",t:"7-8 hours of sleep is doing more for your belly fat than any crunch ever will."},{i:"📅",t:"Consistency over Intensity. Showing up every day at 70% beats skipping workouts."},{i:"📏",t:"Take measurements and photos now. The scale lies — inches and mirror tell the truth."}];
+];const HT=[{i:"💧",t:"Drink water before you even pick up a weight. At 250lbs you need more than most."},{i:"🥩",t:"Protein is non-negotiable. Aim for 180-200g/day to preserve muscle while cutting."},{i:"😴",t:"7-8 hours of sleep is doing more for your belly fat than any crunch ever will."},{i:"📅",t:"Consistency over Intensity. Showing up every day at 70% beats skipping workouts."},{i:"📏",t:"Take measurements and photos now. The scale lies — inches and mirror tell the truth."}];
 const ST=[{i:"💧",t:"Hydration is huge for women's fat loss. Aim for at least 80oz of water daily."},{i:"🥩",t:"Protein protects your muscle while cutting. Target 130-150g per day."},{i:"🌙",t:"Cortisol directly causes belly fat and love handles. Sleep 7-8 hours — it is training."},{i:"📏",t:"Take waist and hip measurements now plus a photo. The scale will be unreliable as you build muscle."},{i:"🔄",t:"Your energy will vary through your cycle — that is normal. Adjust intensity, never skip entirely."}];
 function getWeekKey(){const now=new Date();const day=now.getDay();const monday=new Date(now);monday.setDate(now.getDate()-(day===0?6:day-1));return monday.toISOString().slice(0,10);}
 function loadChk(){try{const saved=JSON.parse(localStorage.getItem('crispfit')||'{}');const week=getWeekKey();if(saved.week!==week){return{week:week,h:{},s:{}};}return saved;}catch(e){return{week:getWeekKey(),h:{},s:{}};}}
 function saveChk(){try{localStorage.setItem('crispfit',JSON.stringify(chk));}catch(e){}}
 let chk=loadChk();
 let who='h',d=0;
-function go(p){who=p;d=0;document.getElementById('sel').style.display='none';document.getElementById('app').style.display='block';const h=p==='h';document.getElementById('hn').innerHTML=h?'HAYDEN\'S <span style="color:#e8632a">AT-HOME</span> PROGRAM':'SHELBY\'S <span style="color:#c4567a">AT-HOME</span> PROGRAM';document.getElementById('hsu').textContent=h?'6 DAYS/WEEK · CUT + TONE · ARMS & CORE':'6 DAYS/WEEK · CUT + TONE · GLUTES & ARMS';rT();rA();render();}
+function go(p){who=p;d=0;document.getElementById('sel').style.display='none';document.getElementById('app').style.display='block';const h=p==='h';document.getElementById('hn').innerHTML=h?'HAYDEN\'S <span style="color:#e8632a">AT-HOME</span> PROGRAM':'SHELBY\'S <span style="color:#c4567a">AT-HOME</span> PROGRAM';document.getElementById('hsu').textContent=h?'6 DAYS/WEEK · CUT + TONE · ARMS & CORE':'6 DAYS/WEEK · CUT + TONE · ARMS & SHOULDERS';rT();rA();render();}
 function back(){document.getElementById('app').style.display='none';document.getElementById('sel').style.display='flex';}
 function days(){return who==='h'?H:S;}
 function render(){
@@ -276,3 +275,4 @@ function tog(di,ei){const k=di+'-'+ei;if(!chk[who])chk[who]={};chk[who][k]=!chk[
 </script>
 </body>
 </html>
+
